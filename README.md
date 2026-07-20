@@ -35,7 +35,7 @@ In the meantime, this repository contains a `toy_dataset.csv` (located in `data/
 ├── .gitignore               # Ensures private data is not uploaded
 ├── requirements.txt         # Python dependencies
 └── README.md                # Project documentation
-
+```
 ## 🚀 Quick Start (Testing with Toy Data)
 To verify the computational pipeline on your local machine using the provided toy dataset, follow these steps:
 
