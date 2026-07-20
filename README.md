@@ -40,21 +40,18 @@ In the meantime, this repository contains a `toy_dataset.csv` (located in `data/
 To verify the computational pipeline on your local machine using the provided toy dataset, follow these steps:
 
 1. Install Dependencies
-```
-bash
+```bash
 pip install -r requirements.txt
 ```
 2. Evaluate the Machine Learning Models
 Test the Kernel Ridge Regression (KRR) and Random Forest (RF) algorithms on the dummy dataset:
-```
-bash
+```bash
 python scripts/03a_model_evaluation_KRR.py --input data/toy/toy_dataset.csv
 python scripts/03b_model_evaluation_RF.py --input data/toy/toy_dataset.csv
 ```
 3. Run the Virtual Screen & Matchmaker Pipeline
 Execute the high-throughput screening algorithm and rank the top macrocycles using the Comparative Selectivity Index (Z-score):
-```
-bash
+```bash
 python scripts/04_virtual_screen.py \
   --train_data data/toy/toy_dataset.csv \
   --guest_data data/toy/toy_contaminants.csv \
