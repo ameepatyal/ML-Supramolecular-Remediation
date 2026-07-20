@@ -43,13 +43,27 @@ To verify the computational pipeline on your local machine using the provided to
 ```bash
 pip install -r requirements.txt
 ```
-2. Evaluate the Machine Learning Models
+2.Extract RDKit Guest Descriptors
+Calculate 2D/3D physical, electronic, and topological molecular descriptors from SMILES:
+```bash
+python scripts/01_build_guest_features.py --output data/toy/guest_ml_features.csv
+```
+3.Construct Master Machine Learning Dataset
+Merge binding energy measurements, host geometric metrics, and guest features:
+```bash
+python scripts/02_host_features_merge_data.py \
+  --be_file data/toy/toy_BE_data.csv \
+  --guest_file data/toy/guest_ml_features.csv \
+  --host_file data/toy/toy_host_features.csv \
+  --output data/toy/FINAL_ML_DATASET.csv
+```
+4. Evaluate the Machine Learning Models
 Test the Kernel Ridge Regression (KRR) and Random Forest (RF) algorithms on the dummy dataset:
 ```bash
 python scripts/03a_model_evaluation_KRR.py --input data/toy/toy_dataset.csv
 python scripts/03b_model_evaluation_RF.py --input data/toy/toy_dataset.csv
 ```
-3. Run the Virtual Screen & Matchmaker Pipeline
+5. Run the Virtual Screen & Matchmaker Pipeline
 Execute the high-throughput screening algorithm and rank the top macrocycles using the Comparative Selectivity Index (Z-score):
 ```bash
 python scripts/04_virtual_screen.py \
